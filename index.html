@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RR Lighting Solutions – India's Premier Floodlighting Consultancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96B;
+      --gold-pale: #F5E6B8;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --dark-2: #1A1A1A;
+      --dark-3: #242424;
+      --mid: #333333;
+      --light-mid: #888888;
+      --light: #CCCCCC;
+      --white: #F8F6F0;
+      --accent: #D4472A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ── TRANSLATE WIDGET ── */
+    #translate-bar {
+      position: fixed;
+      top: 0; right: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      border-left: 1px solid rgba(201,168,76,0.2);
+      font-size: 11px;
+      font-family: 'Barlow', sans-serif;
+      letter-spacing: 0.08em;
+      color: var(--light-mid);
+    }
+    #translate-bar svg { width:13px; height:13px; fill:var(--gold); flex-shrink:0; }
+    #google_translate_element .goog-te-gadget-simple {
+      background: transparent !important;
+      border: none !important;
+      font-family: 'Barlow', sans-serif !important;
+    }
+    .goog-te-gadget-simple .goog-te-menu-value span { color: var(--gold) !important; font-size:11px; }
+    .goog-te-gadget-simple img { display:none !important; }
+    body > .skiptranslate { display:none !important; }
+    body { top: 0px !important; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      transition: background 0.4s, box-shadow 0.4s, top 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(201,168,76,0.15);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo span { color: var(--gold); font-size: 10px; font-family:'Barlow Condensed',sans-serif; font-weight:500; letter-spacing:0.3em; margin-top:3px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 100%;
+      height: 1px;
+      background: var(--gold);
+      transition: right 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* hamburger */
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; }
+    .hamburger span { width:24px; height:2px; background:var(--white); transition:all 0.3s; display:block; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* mobile nav overlay */
+    .mobile-nav {
+      display:none;
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index:999;
+      background:rgba(10,10,10,0.98);
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:32px;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.3s;
+    }
+    .mobile-nav.open { display:flex; opacity:1; pointer-events:all; }
+    .mobile-nav a {
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:28px;
+      font-weight:500;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:var(--white);
+      text-decoration:none;
+      transition:color 0.2s;
+    }
+    .mobile-nav a:hover { color:var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 40%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 20% 70%, rgba(201,168,76,0.04) 0%, transparent 50%),
+        linear-gradient(160deg, #0A0A0A 0%, #111111 40%, #0D0D0D 100%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 80px 80px;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+    .hero-eyebrow::before { content:''; width:40px; height:1px; background:var(--gold); }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 8vw, 110px);
+      font-weight: 300;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--light-mid);
+      max-width: 540px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+    .btn-primary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content:'';
+      position:absolute;
+      inset:0;
+      background:var(--gold-light);
+      transform:translateX(-100%);
+      transition:transform 0.3s;
+    }
+    .btn-primary:hover::before { transform:translateX(0); }
+    .btn-primary span { position:relative; z-index:1; }
+    .btn-secondary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-stat-strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      display: flex;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      opacity: 0;
+      animation: fadeUp 0.8s 1.1s forwards;
+    }
+    .hero-stat {
+      flex: 1;
+      padding: 28px 40px;
+      border-right: 1px solid rgba(201,168,76,0.1);
+      position: relative;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light-mid);
+      margin-top: 6px;
+    }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 100px 80px; position: relative; }
+    .section-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); flex-shrink:0; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-text p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--light-mid);
+      margin-bottom: 20px;
+    }
+    .about-text p strong { color: var(--white); font-weight: 500; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(201,168,76,0.1);
+    }
+    .about-feature {
+      background: var(--dark-2);
+      padding: 32px;
+      transition: background 0.3s;
+    }
+    .about-feature:hover { background: var(--dark-3); }
+    .af-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .af-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .af-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--light-mid);
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--black); }
+    .services-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 64px;
+      align-items: end;
+    }
+    .services-intro p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--light-mid);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(201,168,76,0.08);
+    }
+    .service-card {
+      background: var(--dark);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background 0.3s;
+    }
+    .service-card::before {
+      content:'';
+      position:absolute;
+      bottom:0; left:0; right:100%;
+      height:2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: right 0.4s;
+    }
+    .service-card:hover::before { right:0; }
+    .service-card:hover { background: var(--dark-2); }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .service-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .service-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--light-mid);
+    }
+    .service-tag {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 4px 12px;
+    }
+
+    /* ── CASE STUDIES ── */
+    #case-studies { background: var(--dark); }
+    .cs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: rgba(201,168,76,0.08);
+    }
+    .cs-card {
+      background: var(--dark-2);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .cs-card:first-child {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .cs-card:hover { background: var(--dark-3); }
+    .cs-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .cs-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .cs-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--light-mid);
+      margin-bottom: 24px;
+    }
+    .cs-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .cs-meta-item { }
+    .cs-meta-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gold);
+    }
+    .cs-meta-key {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-mid);
+    }
+    .cs-visual {
+      aspect-ratio: 16/9;
+      background: var(--dark-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cs-visual-inner {
+      text-align: center;
+      color: rgba(201,168,76,0.3);
+      font-size: 48px;
+    }
+    .cs-visual-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.3);
+      margin-top: 8px;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--black); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 200px);
+      gap: 4px;
+      margin-top: 48px;
+    }
+    .gallery-item {
+      background: var(--dark-2);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-item:nth-child(1) { grid-column: 1/6; grid-row: 1/3; }
+    .gallery-item:nth-child(2) { grid-column: 6/9; grid-row: 1/2; }
+    .gallery-item:nth-child(3) { grid-column: 9/13; grid-row: 1/2; }
+    .gallery-item:nth-child(4) { grid-column: 6/10; grid-row: 2/3; }
+    .gallery-item:nth-child(5) { grid-column: 10/13; grid-row: 2/3; }
+    .gallery-item:nth-child(6) { grid-column: 1/5; grid-row: 3/4; }
+    .gallery-item:nth-child(7) { grid-column: 5/9; grid-row: 3/4; }
+    .gallery-item:nth-child(8) { grid-column: 9/13; grid-row: 3/4; }
+    .gallery-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(201,168,76,0.2);
+      font-size: 32px;
+      width:100%; height:100%;
+      background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-3) 100%);
+    }
+    .gallery-placeholder-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.2);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,10,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-overlay-icon {
+      width: 48px; height: 48px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    /* ── CLIENTS ── */
+    #clients { background: var(--dark); }
+    .clients-intro {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+    .clients-intro p { font-size:15px; line-height:1.8; color:var(--light-mid); }
+    .clients-ticker {
+      overflow: hidden;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      padding: 24px 0;
+    }
+    .clients-track {
+      display: flex;
+      gap: 64px;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+    .clients-ticker:hover .clients-track { animation-play-state: paused; }
+    .client-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light-mid);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: color 0.2s;
+    }
+    .client-item::before { content:'◆'; color: var(--gold); font-size:8px; }
+    .client-item:hover { color: var(--white); }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .clients-sectors {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: rgba(201,168,76,0.06);
+      margin-top: 64px;
+    }
+    .sector-card {
+      background: var(--dark-2);
+      padding: 36px 28px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .sector-card:hover { background: var(--dark-3); }
+    .sector-icon { font-size: 36px; margin-bottom: 16px; }
+    .sector-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--black); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .contact-info p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--light-mid);
+      margin-bottom: 40px;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      border: 1px solid rgba(201,168,76,0.1);
+      transition: border-color 0.3s;
+    }
+    .contact-detail:hover { border-color: rgba(201,168,76,0.3); }
+    .cd-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .cd-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .cd-value {
+      font-size: 14px;
+      color: var(--light);
+      line-height: 1.5;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--light-mid);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      padding: 14px 16px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: var(--dark); }
+    .form-submit {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 18px 48px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 64px 80px 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-brand-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--light-mid);
+    }
+    .footer-col-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a {
+      font-size: 13px;
+      color: var(--light-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom a { color: var(--gold); text-decoration:none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── GOLD LINE ACCENT ── */
+    .gold-line {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+      opacity: 0.2;
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      section { padding: 80px 40px; }
+      .hero-content { padding: 120px 40px 80px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .services-intro { grid-template-columns: 1fr; gap: 24px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .hero-stat-strip { position: relative; }
+      .clients-sectors { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; height: 64px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 64px 24px; }
+      .hero-content { padding: 100px 24px 48px; }
+      .hero-stat-strip { display: none; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .cs-grid { grid-template-columns: 1fr; }
+      .cs-card:first-child { grid-column: 1; display: block; }
+      .cs-visual { margin-top: 24px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 1; }
+      .clients-sectors { grid-template-columns: 1fr 1fr; }
+      footer { padding: 48px 24px 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .about-features { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      #translate-bar { font-size: 10px; padding: 5px 12px; }
+    }
+  </style>
+
+  <!-- Google Translate -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+
+<!-- TRANSLATE BAR -->
+<div id="translate-bar">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+  <span>Translate this site:</span>
+  <div id="google_translate_element"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    RR Lighting Solutions
+    <span>Est. 1999 · India</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#case-studies">Case Studies</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta"><span>Enquire Now</span></a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#case-studies" onclick="closeMenu()">Case Studies</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#clients" onclick="closeMenu()">Clients</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">India's Premier Floodlighting Consultancy</div>
+    <h1 class="hero-title">
+      Illuminating<br/>
+      <em>Excellence</em><br/>
+      Worldwide
+    </h1>
+    <p class="hero-sub">
+      From professional stadia to industrial infrastructure — RR Lighting Solutions delivers turnkey, precision-engineered lighting across the subcontinent and beyond, with over a quarter-century of unrivalled expertise.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary"><span>Explore Our Services</span></a>
+      <a href="#case-studies" class="btn-secondary">View Case Studies</a>
+    </div>
+  </div>
+  <div class="hero-stat-strip">
+    <div class="hero-stat">
+      <div class="hero-stat-num">25+</div>
+      <div class="hero-stat-label">Years of Excellence</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100+</div>
+      <div class="hero-stat-label">Projects Executed</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Pan-India</div>
+      <div class="hero-stat-label">& International Reach</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">1-Stop</div>
+      <div class="hero-stat-label">Turnkey Solutions</div>
+    </div>
+  </div>
+</section>
+
+<span class="gold-line"></span>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="section-title">A Legacy of <em>Precision</em> &amp; Light</h2>
+      <div class="divider"></div>
+      <p>
+        Founded over two and a half decades ago, <strong>RR Lighting Solutions (RRLS)</strong> has established itself as India's foremost authority in professional floodlighting consultancy. Our body of work spans some of the most prestigious sporting venues, industrial complexes, ports, and airports across the nation and abroad.
+      </p>
+      <p>
+        We do not merely install lighting systems — we architect luminous environments engineered for performance, longevity, and efficiency. Our singular expertise encompasses the full project lifecycle, from initial feasibility assessment to commissioning, and continues through the operational life of every system we deliver.
+      </p>
+      <p>
+        At RRLS, we offer a <strong>comprehensive one-stop solution</strong> for your entire turnkey electrical infrastructure — eliminating coordination complexity and ensuring seamless project delivery under one trusted roof.
+      </p>
+      <a href="#contact" class="btn-primary" style="margin-top:16px; display:inline-block;"><span>Speak with Our Consultants</span></a>
+    </div>
+    <div class="about-features">
+      <div class="about-feature">
+        <div class="af-icon">🏟️</div>
+        <div class="af-title">Sports &amp; Stadia</div>
+        <div class="af-desc">Professional floodlighting for cricket grounds, football stadia, multi-sport complexes, and broadcast-ready venues.</div>
+      </div>
+      <div class="about-feature">
+        <div class="af-icon">🏭</div>
+        <div class="af-title">Industrial &amp; Ports</div>
+        <div class="af-desc">High-performance illumination for warehouses, industrial parks, ports, shipyards, and logistics hubs.</div>
+      </div>
+      <div class="about-feature">
+        <div class="af-icon">✈️</div>
+        <div class="af-title">Airports</div>
+        <div class="af-desc">Safety-critical airside and landside lighting solutions engineered to the most exacting international standards.</div>
+      </div>
+      <div class="about-feature">
+        <div class="af-icon">⚡</div>
+        <div class="af-title">Turnkey Electrical</div>
+        <div class="af-desc">Complete electrical infrastructure delivery — from design and procurement to installation and commissioning.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<span class="gold-line"></span>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-intro reveal">
+    <div>
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">Our <em>Comprehensive</em> Service Portfolio</h2>
+      <div class="divider"></div>
+    </div>
+    <p>
+      From the procurement of a single luminaire to the delivery of an entire stadium lighting ecosystem — RRLS provides an unmatched breadth of specialist services, each executed with the same rigour and precision that has defined our practice since inception.
+    </p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-title">New Installations</div>
+      <div class="service-desc">Design, supply, and installation of cutting-edge MH and LED floodlighting systems for sports facilities, industrial spaces, airports, and ports — executed to the highest engineering standards, both domestically and internationally.</div>
+      <span class="service-tag">MH &amp; LED Systems</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-title">LED Retrofits &amp; Overhaul</div>
+      <div class="service-desc">A complete conversion service for legacy Metal Halide systems to energy-efficient, broadcast-grade LED technology. We assess, design, procure, and execute with zero-compromise on luminous performance.</div>
+      <span class="service-tag">Energy Efficiency</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-title">Aiming &amp; Re-Aiming</div>
+      <div class="service-desc">Precision photometric aiming and re-aiming services to eliminate glare, correct spill light, and ensure uniformity ratios meet international broadcast and sporting standards, including BCCI, ICC, FIFA, and more.</div>
+      <span class="service-tag">Photometric Precision</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-title">Servicing &amp; AMC</div>
+      <div class="service-desc">Structured Annual Maintenance Contracts and responsive servicing to guarantee the sustained performance of your lighting infrastructure, minimising unplanned downtime and extending asset life.</div>
+      <span class="service-tag">Long-Term Partnership</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-title">Musco MH System Buy-Back</div>
+      <div class="service-desc">We facilitate the professional dismantling, valuation, and buy-back of existing Musco Metal Halide systems across India and internationally — enabling a clean transition to modern, efficient alternatives.</div>
+      <span class="service-tag">India &amp; International</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-title">Consultancy &amp; Design</div>
+      <div class="service-desc">Independent expert consultancy spanning lighting design, electrical infrastructure planning, regulatory compliance, and project management — delivering unbiased, client-centric guidance at every stage.</div>
+      <span class="service-tag">Expert Guidance</span>
+    </div>
+  </div>
+</section>
+
+<span class="gold-line"></span>
+
+<!-- CASE STUDIES -->
+<section id="case-studies">
+  <div class="reveal">
+    <div class="section-eyebrow">Case Studies</div>
+    <h2 class="section-title">Projects That Define <em>Our Standard</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="cs-grid reveal">
+
+    <!-- Featured -->
+    <div class="cs-card">
+      <div>
+        <div class="cs-label">Featured Project · Cricket</div>
+        <h3 class="cs-title">Assam Cricket Association Ground, Guwahati</h3>
+        <p class="cs-desc">
+          Complete floodlighting consultancy and execution for one of North-East India's premier international cricket venues. The project involved precision photometric design to international BCCI broadcast standards, full MH-to-LED transition planning, aiming optimisation, and turnkey electrical infrastructure commissioning — delivering a venue capable of hosting day-night international fixtures.
+        </p>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <div class="cs-meta-val">300+</div>
+            <div class="cs-meta-key">Lux (avg.)</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-val">BCCI</div>
+            <div class="cs-meta-key">Standard Compliance</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-val">Turnkey</div>
+            <div class="cs-meta-key">Delivery Model</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-visual">
+        <div class="gallery-placeholder">
+          <div style="font-size:48px;">🏟️</div>
+          <div class="gallery-placeholder-label">Assam Cricket Association</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-card">
+      <div class="cs-label">Cricket · Mumbai</div>
+      <h3 class="cs-title">Cricket Club of India, Mumbai</h3>
+      <p class="cs-desc">
+        Comprehensive lighting consultancy and system evaluation for one of India's oldest and most distinguished cricket institutions. Scope included legacy system audit, re-aiming calibration, and strategic upgrade roadmap aligned with the Club's long-term facility development plan.
+      </p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <div class="cs-meta-val">Heritage</div>
+          <div class="cs-meta-key">Venue Category</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-val">Full</div>
+          <div class="cs-meta-key">System Audit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-card">
+      <div class="cs-label">University · Maharashtra</div>
+      <h3 class="cs-title">Sanjay Ghodawat University, Kolhapur</h3>
+      <p class="cs-desc">
+        End-to-end floodlighting design and installation for a state-of-the-art multi-sport university campus. The solution encompassed LED floodlighting across multiple playing surfaces, optimised for both competitive play and recreational use, with energy efficiency as a primary design parameter.
+      </p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <div class="cs-meta-val">Multi-Sport</div>
+          <div class="cs-meta-key">Facility Type</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-val">LED</div>
+          <div class="cs-meta-key">Technology</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-card">
+      <div class="cs-label">Cricket · Gujarat</div>
+      <h3 class="cs-title">Surat District Cricket Association</h3>
+      <p class="cs-desc">
+        Floodlighting consultancy and turnkey installation for SDCA's primary cricket ground in Surat. The project delivered broadcast-compliant lux levels across the playing arena with precision aiming to meet the stringent uniformity and glare-control requirements of district-level cricket administration in India.
+      </p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <div class="cs-meta-val">Broadcast</div>
+          <div class="cs-meta-key">Compliant</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-val">Gujarat</div>
+          <div class="cs-meta-key">Location</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<span class="gold-line"></span>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="reveal">
+    <div class="section-eyebrow">Gallery</div>
+    <h2 class="section-title">Our Work, <em>Illuminated</em></h2>
+    <div class="divider"></div>
+    <p style="color:var(--light-mid); font-size:14px; max-width:560px; line-height:1.8;">
+      A visual record of our projects — each image a testament to the precision, scale, and luminous quality that defines the RRLS approach across every engagement.
+    </p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>🏟️</div>
+        <div class="gallery-placeholder-label">Stadium Floodlighting</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>🔆</div>
+        <div class="gallery-placeholder-label">LED Mast Installation</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>✈️</div>
+        <div class="gallery-placeholder-label">Airport Infrastructure</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>🏭</div>
+        <div class="gallery-placeholder-label">Industrial Facility</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>⚡</div>
+        <div class="gallery-placeholder-label">Electrical Infrastructure</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>🏏</div>
+        <div class="gallery-placeholder-label">Cricket Ground</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>🚢</div>
+        <div class="gallery-placeholder-label">Port Lighting</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div>🌃</div>
+        <div class="gallery-placeholder-label">Night Operations</div>
+      </div>
+      <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+    </div>
+  </div>
+  <p style="margin-top:20px; font-size:12px; color:rgba(255,255,255,0.2); letter-spacing:0.1em; font-family:'Barlow Condensed',sans-serif; text-transform:uppercase;">
+    ◆ Gallery placeholders — replace with your project photography
+  </p>
+</section>
+
+<span class="gold-line"></span>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="clients-intro reveal">
+    <div class="section-eyebrow">Our Clients</div>
+    <h2 class="section-title">Trusted by <em>India's Finest</em></h2>
+    <div class="divider"></div>
+    <p>
+      Our client roster reads as a who's who of Indian sport, academia, and infrastructure. Each engagement is a testament to the confidence that institutional stakeholders place in RRLS to deliver outcomes that endure.
+    </p>
+  </div>
+
+  <!-- Ticker -->
+  <div class="clients-ticker reveal">
+    <div class="clients-track">
+      <span class="client-item">Assam Cricket Association</span>
+      <span class="client-item">Cricket Club of India</span>
+      <span class="client-item">Sanjay Ghodawat University</span>
+      <span class="client-item">Surat District Cricket Association</span>
+      <span class="client-item">Assam Cricket Association</span>
+      <span class="client-item">Cricket Club of India</span>
+      <span class="client-item">Sanjay Ghodawat University</span>
+      <span class="client-item">Surat District Cricket Association</span>
+      <span class="client-item">Assam Cricket Association</span>
+      <span class="client-item">Cricket Club of India</span>
+      <span class="client-item">Sanjay Ghodawat University</span>
+      <span class="client-item">Surat District Cricket Association</span>
+    </div>
+  </div>
+
+  <!-- Sectors -->
+  <div class="clients-sectors reveal">
+    <div class="sector-card">
+      <div class="sector-icon">🏏</div>
+      <div class="sector-name">Cricket Associations</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">🎓</div>
+      <div class="sector-name">Universities &amp; Institutions</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">🏭</div>
+      <div class="sector-name">Industrial &amp; Manufacturing</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">🚢</div>
+      <div class="sector-name">Ports &amp; Airports</div>
+    </div>
+  </div>
+</section>
+
+<span class="gold-line"></span>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Let Us <em>Illuminate</em> Your Project</h2>
+      <div class="divider"></div>
+      <p>
+        Whether you are planning a new sports facility, considering a legacy system upgrade, or seeking independent expert guidance on a complex infrastructure challenge — the consultants at RR Lighting Solutions are ready to engage. Reach out to initiate a conversation.
+      </p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="cd-icon">📍</div>
+          <div>
+            <div class="cd-label">Headquarters</div>
+            <div class="cd-value">India (Pan-India Operations &amp; International Projects)</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">✉️</div>
+          <div>
+            <div class="cd-label">Email</div>
+            <div class="cd-value">enquiries@rrlightingsolutions.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📞</div>
+          <div>
+            <div class="cd-label">Phone</div>
+            <div class="cd-value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label>Organisation</label>
+          <input type="text" placeholder="Company or institution" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Nature of Enquiry</label>
+        <select>
+          <option value="" disabled selected>Select a service area</option>
+          <option>New MH/LED Installation</option>
+          <option>LED Retrofit &amp; Overhaul</option>
+          <option>Aiming / Re-Aiming Services</option>
+          <option>Annual Maintenance Contract (AMC)</option>
+          <option>Musco MH System Buy-Back</option>
+          <option>General Consultancy</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Project Brief</label>
+        <textarea placeholder="Please describe your project requirements, location, timelines, and any specific technical considerations…"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit()">Submit Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">RR Lighting Solutions</div>
+      <div class="footer-brand-tag">India's Premier Floodlighting Consultancy</div>
+      <p class="footer-brand-desc">
+        Over 25 years of uncompromising expertise in professional floodlighting, LED conversion, and turnkey electrical infrastructure for stadia, industrial facilities, ports, and airports — across India and internationally.
+      </p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul>
+        <li><a href="#services">New Installations</a></li>
+        <li><a href="#services">LED Retrofits</a></li>
+        <li><a href="#services">Aiming Services</a></li>
+        <li><a href="#services">AMC &amp; Servicing</a></li>
+        <li><a href="#services">Musco Buy-Back</a></li>
+        <li><a href="#services">Consultancy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="#about">About RRLS</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#clients">Our Clients</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Sectors</div>
+      <ul>
+        <li><a href="#services">Sports &amp; Stadia</a></li>
+        <li><a href="#services">Industrial Spaces</a></li>
+        <li><a href="#services">Ports &amp; Harbours</a></li>
+        <li><a href="#services">Airports</a></li>
+        <li><a href="#services">Universities</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 RR Lighting Solutions. All rights reserved.</span>
+    <span>Designed with precision · Built for performance</span>
+  </div>
+</footer>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('active');
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('active');
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+
+  // Form submit
+  function handleSubmit() {
+    alert('Thank you for your enquiry. A consultant from RR Lighting Solutions will be in touch with you shortly.');
+  }
+
+  // Nudge translate bar below navbar on scroll
+  const tbar = document.getElementById('translate-bar');
+  window.addEventListener('scroll', () => {
+    tbar.style.top = window.scrollY > 0 ? '0' : '0';
+  });
+</script>
+</body>
+</html>
