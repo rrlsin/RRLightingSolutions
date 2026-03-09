@@ -472,16 +472,7 @@ function setNavTop(){const tb=document.querySelector('.tbar'),nav=document.getEl
 setNavTop();window.addEventListener('resize',setNavTop);
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');observer.unobserve(e.target)}})},{threshold:.08});
 document.querySelectorAll('.rev').forEach(el=>observer.observe(el));
-/* CONTACT FORM - native Formspree submission */
-const cForm=document.getElementById('cForm');
-if(cForm){
-  cForm.addEventListener('submit',function(e){
-    const btn=cForm.querySelector('.c-btn');
-    btn.textContent='Sending...';
-    btn.disabled=true;
-    /* Let the form submit natively to Formspree */
-  });
-}
+/* CONTACT FORM - 100% native POST to Formspree, no JS interference */
 
 /* LITERATURE FILTER */
 function filterLit(audience, tab){
