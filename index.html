@@ -424,6 +424,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
       <div class="c-detail"><div class="c-icon">&#128222;</div><div><div class="c-label">Phone</div><div class="c-val"><a href="tel:+918383995179" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--beam)'" onmouseout="this.style.color='inherit'">+91 83839 95179</a></div></div></div>
     </div>
     <form class="c-form rev" id="cForm" action="https://formspree.io/f/mpqyqppy" method="POST" style="transition-delay:.1s">
+      <input type="hidden" name="_next" value="https://rrlsin.github.io/RRLightingSolutions/#contact">
+      <input type="hidden" name="_subject" value="New Enquiry — RR Lighting Solutions">
       <div class="c-row">
         <div class="c-group"><label class="c-flabel" for="fn">Full Name</label><input type="text" id="fn" name="name" placeholder="Your full name" required></div>
         <div class="c-group"><label class="c-flabel" for="org">Organisation</label><input type="text" id="org" name="organisation" placeholder="Company / institution"></div>
@@ -470,18 +472,16 @@ function setNavTop(){const tb=document.querySelector('.tbar'),nav=document.getEl
 setNavTop();window.addEventListener('resize',setNavTop);
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');observer.unobserve(e.target)}})},{threshold:.08});
 document.querySelectorAll('.rev').forEach(el=>observer.observe(el));
-const cForm=document.getElementById('cForm'),cOk=document.getElementById('cOk');
-cForm.addEventListener('submit',async function(e){
-  e.preventDefault();
-  const btn=cForm.querySelector('.c-btn');btn.textContent='Sending...';btn.disabled=true;
-  const data=Object.fromEntries(new FormData(cForm));
-  try{
-    const r=await fetch('https://formspree.io/f/mpqyqppy',{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json','Accept':'application/json'}});
-    const json=await r.json();
-    if(r.ok){cForm.reset();cOk.style.display='block';btn.textContent='Submit Enquiry';btn.disabled=false}
-    else{alert(json.error||'Submission failed. Please email us directly.');btn.textContent='Try Again';btn.disabled=false}
-  }catch{btn.textContent='Error - Try Again';btn.disabled=false}
-});
+/* CONTACT FORM - native Formspree submission */
+const cForm=document.getElementById('cForm');
+if(cForm){
+  cForm.addEventListener('submit',function(e){
+    const btn=cForm.querySelector('.c-btn');
+    btn.textContent='Sending...';
+    btn.disabled=true;
+    /* Let the form submit natively to Formspree */
+  });
+}
 
 /* LITERATURE FILTER */
 function filterLit(audience, tab){
