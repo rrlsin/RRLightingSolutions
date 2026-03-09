@@ -21,7 +21,7 @@ gtag('config','G-BBJ7F8L13Q',{send_page_view:true});
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{--void:#000;--deep:#070707;--carbon:#0d0d0d;--steel:#141414;--iron:#1e1e1e;--border:rgba(255,255,255,0.07);--beam:#C9A84C;--beam-light:#E8C97A;--text:#EEEBE4;--muted:#7A7672;--faint:#3A3834;--font-d:'Bebas Neue',sans-serif;--font-s:'Cormorant',serif;--font-b:'DM Sans',sans-serif;}
+:root{--void:#000;--deep:#070707;--carbon:#0d0d0d;--steel:#141414;--iron:#1e1e1e;--border:rgba(255,255,255,0.07);--beam:#C9A84C;--beam-light:#E8C97A;--text:#F2EFE8;--muted:#C8C4BC;--faint:#3A3834;--font-d:'Bebas Neue',sans-serif;--font-s:'Cormorant',serif;--font-b:'DM Sans',sans-serif;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--void);color:var(--text);font-family:var(--font-b);font-weight:300;line-height:1.7;overflow-x:hidden;cursor:none}
@@ -43,7 +43,7 @@ nav{position:fixed;left:0;right:0;z-index:500;height:68px;display:flex;align-ite
 .nb-name b{color:var(--beam);font-weight:400}
 .nb-tag{font-family:var(--font-d);font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--beam);opacity:.7}
 .nl{display:flex;align-items:center;gap:32px;list-style:none}
-.nl a{font-family:var(--font-d);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
+.nl a{font-family:var(--font-d);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E0DDD6;text-decoration:none;transition:color .2s;position:relative}
 .nl a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--beam);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .nl a:hover{color:var(--beam)}
 .nl a:hover::after{transform:scaleX(1)}
@@ -151,6 +151,13 @@ nav{position:fixed;left:0;right:0;z-index:500;height:68px;display:flex;align-ite
 .pdf-modal iframe{width:100%;max-width:1000px;height:calc(100vh - 120px);border:1px solid rgba(201,168,76,.12);background:#fff}
 .gallery-wrap{max-width:1280px;margin:0 auto}
 .gallery-intro{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:24px;flex-wrap:wrap}
+.g-tile-more{display:flex;align-items:center;justify-content:center;background:var(--steel);border:1px solid rgba(201,168,76,.2);text-decoration:none;transition:border-color .3s,background .3s;cursor:pointer}
+.g-tile-more:hover{border-color:rgba(201,168,76,.6);background:rgba(201,168,76,.05)}
+.g-more-inner{display:flex;flex-direction:column;align-items:center;gap:12px;padding:24px;text-align:center}
+.g-more-icon svg{transition:transform .3s}
+.g-tile-more:hover .g-more-icon svg{transform:scale(1.1)}
+.g-more-label{font-family:var(--font-d);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--beam)}
+.g-more-sub{font-size:11px;color:var(--muted);letter-spacing:.06em}
 .gallery-note{font-size:13px;color:var(--muted);max-width:320px;line-height:1.7;text-align:right;border-left:1px solid rgba(201,168,76,.2);padding-left:16px}
 .g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,220px);gap:2px}
 .g-tile{background:var(--steel);position:relative;overflow:hidden;transition:background .3s;cursor:pointer}
@@ -325,7 +332,19 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
       <div class="g-tile has-img" onclick="openLb(6)"><div class="g-tile-inner"><div class="g-tile-line"></div><div class="g-tile-num">WPL &mdash; Stadium Stands</div></div><div class="g-hover"><span class="g-zoom-icon">+</span></div><img src="wpl-stadium-stands.jpg" alt="Stadium stands under floodlights during WPL"></div>
       <div class="g-tile has-img" onclick="openLb(7)"><div class="g-tile-inner"><div class="g-tile-line"></div><div class="g-tile-num">MH Lamp &mdash; Close Up</div></div><div class="g-hover"><span class="g-zoom-icon">+</span></div><img src="mh-lamp-closeup.jpg" alt="Metal halide floodlight lamp close-up"></div>
       <div class="g-tile has-img" onclick="openLb(8)"><div class="g-tile-inner"><div class="g-tile-line"></div><div class="g-tile-num">Site Survey</div></div><div class="g-hover"><span class="g-zoom-icon">+</span></div><img src="site-survey.jpg" alt="RRLS team conducting site survey"></div>
-      <div class="g-tile"><div class="g-tile-inner"><div class="g-tile-line"></div><div class="g-tile-num">Coming Soon</div></div><div class="g-hover"><span class="g-zoom-icon">+</span></div><img src="" alt=""></div>
+      <a class="g-tile g-tile-more" href="https://www.instagram.com/rrlightingsolutions" target="_blank" rel="noopener">
+        <div class="g-more-inner">
+          <div class="g-more-icon">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9A84C" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4.5" stroke="#C9A84C" stroke-width="1.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="#C9A84C"/>
+            </svg>
+          </div>
+          <div class="g-more-label">More Photos</div>
+          <div class="g-more-sub">Follow us on Instagram</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
