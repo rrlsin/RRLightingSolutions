@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>RR Lighting Solutions — Illuminating Excellence Worldwide</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBJ7F8L13Q"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BBJ7F8L13Q');</script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-BBJ7F8L13Q',{send_page_view:true});
+</script>
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'hi,ar,zh-CN,fr,de,ja,ko,pt,ru,es,ta,te,bn,ur,ms,id',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'gte');}</script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,26 +110,33 @@ nav{position:fixed;left:0;right:0;z-index:500;height:68px;display:flex;align-ite
 .svc-name{font-family:var(--font-d);font-size:19px;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:12px;line-height:1.1}
 .svc-desc{font-size:13px;color:var(--muted);line-height:1.8}
 .svc-tag{margin-top:22px;display:inline-block;font-family:var(--font-d);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--beam);border:1px solid rgba(201,168,76,.18);padding:4px 10px}
-.cs-wrap{max-width:1280px;margin:0 auto}
-.cs-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:24px;flex-wrap:wrap}
-.cs-count{font-family:var(--font-d);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);align-self:flex-end;padding-bottom:4px}
-.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
-.cs-card{background:var(--carbon);padding:40px;transition:background .25s;position:relative;overflow:hidden}
-.cs-card:hover{background:var(--steel)}
-.cs-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--beam);transform:scaleY(0);transform-origin:bottom;transition:transform .4s}
-.cs-card:hover::before{transform:scaleY(1)}
-.cs-index{font-family:var(--font-d);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:20px}
-.cs-project{font-family:var(--font-d);font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:10px;line-height:1.1}
-.cs-location{font-size:12px;color:var(--beam);letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-d);margin-bottom:18px}
-.cs-desc{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:24px}
-.cs-tags{display:flex;gap:8px;flex-wrap:wrap}
-.cs-tag{font-family:var(--font-d);font-size:9px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--border);color:var(--muted);padding:4px 10px}
-.cs-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:52px}
-.cs-card.featured .cs-project{font-size:28px}
-.cs-card.featured .cs-right{border-left:1px solid var(--border);padding-left:48px}
-.cs-pdf-btn{display:inline-flex;align-items:center;gap:9px;margin-top:24px;font-family:var(--font-d);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--beam);border:1px solid rgba(201,168,76,.25);padding:9px 18px;background:none;cursor:pointer;transition:border-color .2s,background .2s}
-.cs-pdf-btn:hover{border-color:var(--beam);background:rgba(201,168,76,.07)}
-.cs-pdf-btn[data-pdf=""]{opacity:.28;pointer-events:none}
+.lit-wrap{max-width:1280px;margin:0 auto}
+.lit-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:48px}
+.lit-intro{font-size:14px;color:var(--muted);line-height:1.9;padding-top:52px}
+.lit-audiences{display:flex;gap:2px;margin-bottom:36px;flex-wrap:wrap}
+.lit-tab{font-family:var(--font-d);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:10px 22px;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s;user-select:none}
+.lit-tab:hover{color:var(--beam);border-color:rgba(201,168,76,.3)}
+.lit-tab.active{background:var(--beam);color:#000;border-color:var(--beam)}
+.lit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.lit-card{background:var(--carbon);padding:36px 32px;transition:background .25s;position:relative;overflow:hidden}
+.lit-card:hover{background:var(--steel)}
+.lit-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--beam),transparent);transform:scaleX(0);transform-origin:center;transition:transform .4s}
+.lit-card:hover::after{transform:scaleX(1)}
+.lit-card[style*="display:none"]{display:none!important}
+.lit-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+.lit-icon{font-size:28px}
+.lit-badge{font-family:var(--font-d);font-size:8px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;border:1px solid}
+.lit-badge.engineers{color:#7EB5C8;border-color:rgba(126,181,200,.3)}
+.lit-badge.stadiums{color:var(--beam);border-color:rgba(201,168,76,.3)}
+.lit-badge.students{color:#8BC98B;border-color:rgba(139,201,139,.3)}
+.lit-title{font-family:var(--font-d);font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:10px;line-height:1.15}
+.lit-desc{font-size:12.5px;color:var(--muted);line-height:1.8;margin-bottom:18px}
+.lit-meta{font-family:var(--font-d);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:22px}
+.lit-btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-d);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--beam);border:1px solid rgba(201,168,76,.25);padding:9px 18px;background:none;cursor:pointer;transition:border-color .2s,background .2s}
+.lit-btn:hover:not([disabled]){border-color:var(--beam);background:rgba(201,168,76,.07)}
+.lit-btn[disabled]{opacity:.3;cursor:not-allowed}
+.lit-notice{margin-top:20px;font-family:var(--font-d);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);text-align:center;padding:16px;border:1px solid var(--border)}
+.lit-notice code{font-family:monospace;color:var(--muted);font-size:11px;text-transform:none;letter-spacing:0}
 .pdf-modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.96);flex-direction:column;align-items:center;justify-content:center;padding:24px}
 .pdf-modal.open{display:flex}
 .pdf-modal-bar{width:100%;max-width:1000px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:16px}
@@ -215,8 +227,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
   .stat{border-right:none;border-bottom:1px solid var(--border);padding:18px 20px}
   .about-grid,.contact-layout,.f-grid{grid-template-columns:1fr;gap:40px}
   .about-cards{padding-top:0}.svc-grid{grid-template-columns:1fr}
-  .cs-grid{grid-template-columns:1fr}.cs-card.featured{grid-template-columns:1fr}
-  .cs-card.featured .cs-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:32px}
+  .lit-grid{grid-template-columns:1fr 1fr}.lit-head{grid-template-columns:1fr;gap:16px}
+  .lit-intro{padding-top:0}
   .g-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,180px)}
   .g-tile:nth-child(1){grid-column:1/3;grid-row:1/2}
   .g-tile:nth-child(6){grid-column:1/3;grid-row:4/5}
@@ -233,8 +245,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
   <a href="#" class="nb"><div class="nb-name"><b>RR</b> Lighting Solutions</div><div class="nb-tag">25+ Years of Excellence &middot; Asia-Pacific</div></a>
   <ul class="nl">
     <li><a href="#about">About</a></li><li><a href="#services">Services</a></li>
-    <li><a href="#case-studies">Case Studies</a></li><li><a href="#gallery">Gallery</a></li>
-    <li><a href="#clients">Clients</a></li><li><a href="#contact" class="n-cta">Enquire Now</a></li>
+    <li><a href="#gallery">Gallery</a></li><li><a href="#clients">Clients</a></li>
+    <li><a href="#literature">Literature</a></li><li><a href="#contact" class="n-cta">Enquire Now</a></li>
   </ul>
 </nav>
 
@@ -246,7 +258,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
     <h1 class="hero-h1"><span>Illuminating</span><span class="line-ghost">Excellence</span><span class="line-lit">Worldwide</span></h1>
     <div class="hero-lower">
       <p class="hero-desc">From professional stadiums to industrial lighting infrastructure &mdash; RR Lighting Solutions delivers turnkey, precision-engineered lighting across the subcontinent and beyond, with over a quarter-century of unrivalled expertise.</p>
-      <div class="hero-actions"><a href="#services" class="btn btn-solid">Our Services</a><a href="#case-studies" class="btn btn-outline">Case Studies</a></div>
+      <div class="hero-actions"><a href="#services" class="btn btn-solid">Our Services</a><a href="#literature" class="btn btn-outline">Literature</a></div>
     </div>
   </div>
   <div class="stats">
@@ -292,64 +304,6 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
     <div class="svc-card rev" style="transition-delay:.25s"><div class="svc-ghost">06</div><div class="svc-num">06</div><div class="svc-name">Consultancy &amp; Design</div><p class="svc-desc">Independent expert consultancy spanning lighting design, electrical infrastructure planning, regulatory compliance, and project management &mdash; delivering unbiased, client-centric guidance at every stage.</p><span class="svc-tag">Expert Guidance</span></div>
   </div>
 </section>
-
-<section id="case-studies" class="sec sec-mid">
-  <div class="cs-wrap">
-    <div class="cs-head rev">
-      <div><div class="s-eyebrow">Case Studies</div><h2 class="s-title tight">Projects That Define<br><span class="accent">Our Standard</span></h2></div>
-      <div class="cs-count">04 Projects</div>
-    </div>
-    <div class="cs-grid">
-      <div class="cs-card featured rev">
-        <div class="cs-left">
-          <div class="cs-index">01 &mdash; Featured Project</div>
-          <div class="cs-project">Assam Cricket Association Ground</div>
-          <div class="cs-location">Guwahati, Assam</div>
-          <div class="cs-tags"><span class="cs-tag">ICC/BCCI Standard</span><span class="cs-tag">Turnkey Delivery</span><span class="cs-tag">LED Installation &amp; Commissioning</span></div>
-          <button class="cs-pdf-btn" data-pdf="pdfs/assam-cricket-association.pdf" data-title="Assam Cricket Association — Case Study" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>View Case Study</button>
-        </div>
-        <div class="cs-right">
-          <p class="cs-desc">Complete floodlighting consultancy and execution for one of North-East India's premier international cricket venues. The project involved precision photometric design to international and BCCI broadcast standards, full LED Infrastructure planning, aiming optimisation, and turnkey electrical infrastructure commissioning &mdash; delivering a venue capable of hosting day-night domestic/international fixtures.</p>
-        </div>
-      </div>
-      <div class="cs-card rev" style="transition-delay:.08s">
-        <div class="cs-index">02 &mdash; Cricket</div>
-        <div class="cs-project">Cricket Club of India</div>
-        <div class="cs-location">Mumbai, Maharashtra</div>
-        <p class="cs-desc">Comprehensive lighting consultancy and system evaluation for one of India's oldest and most distinguished cricket institutions. Scope included legacy system audit, re-aiming calibration, and a strategic upgrade roadmap aligned with the Club's long-term facility development plan.</p>
-        <div class="cs-tags"><span class="cs-tag">Heritage Venue</span><span class="cs-tag">Turnkey Delivery</span><span class="cs-tag">Full System Audit</span></div>
-        <button class="cs-pdf-btn" data-pdf="pdfs/cricket-club-of-india.pdf" data-title="Cricket Club of India — Case Study" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>View Case Study</button>
-      </div>
-      <div class="cs-card rev" style="transition-delay:.16s">
-        <div class="cs-index">03 &mdash; University</div>
-        <div class="cs-project">Sanjay Ghodawat University</div>
-        <div class="cs-location">Kolhapur, Maharashtra</div>
-        <p class="cs-desc">End-to-end floodlighting design and installation for a state-of-the-art multi-sport university campus. The solution encompassed MH floodlighting across multiple playing surfaces, optimised for both competitive play and recreational use, with energy efficiency as a primary design parameter.</p>
-        <div class="cs-tags"><span class="cs-tag">Cricket/Multi-Sport</span><span class="cs-tag">Metal-Halide Technology</span></div>
-        <button class="cs-pdf-btn" data-pdf="pdfs/sanjay-ghodawat-university.pdf" data-title="Sanjay Ghodawat University — Case Study" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>View Case Study</button>
-      </div>
-      <div class="cs-card rev" style="transition-delay:.24s">
-        <div class="cs-index">04 &mdash; Cricket</div>
-        <div class="cs-project">Surat District Cricket Association</div>
-        <div class="cs-location">Surat, Gujarat</div>
-        <p class="cs-desc">Floodlighting consultancy and turnkey retro-fit installation for SDCA's primary cricket ground. The project delivered broadcast-compliant lux levels with precision aiming to meet the stringent uniformity and glare-control requirements of BCCI Domestic and ICC cricket administration in India.</p>
-        <div class="cs-tags"><span class="cs-tag">Broadcast Compliant</span><span class="cs-tag">MH Retro-Fit</span><span class="cs-tag">Gujarat</span></div>
-        <button class="cs-pdf-btn" data-pdf="pdfs/surat-district-cricket-association.pdf" data-title="Surat District Cricket Association — Case Study" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>View Case Study</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="pdf-modal" id="pdfModal">
-  <div class="pdf-modal-bar">
-    <div class="pdf-modal-title" id="pdfModalTitle">Case Study</div>
-    <div class="pdf-modal-actions">
-      <a class="pdf-modal-dl" id="pdfModalDl" href="#" download target="_blank">&#8595; Download</a>
-      <button class="pdf-modal-close" id="pdfModalClose">&#10005; Close</button>
-    </div>
-  </div>
-  <iframe id="pdfModalFrame" src="about:blank" title="Case Study PDF"></iframe>
-</div>
 
 <section id="gallery" class="sec sec-dark">
   <div class="gallery-wrap">
@@ -399,6 +353,65 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
   </div>
 </section>
 
+<section id="literature" class="sec sec-mid">
+  <div class="lit-wrap">
+    <div class="lit-head rev">
+      <div>
+        <div class="s-eyebrow">Literature</div>
+        <h2 class="s-title tight">Knowledge for the<br><span class="accent">Illumination Industry</span></h2>
+      </div>
+      <p class="lit-intro">Technical guides, case studies, and educational material — curated for engineers, stadium authorities, and students working in professional lighting.</p>
+    </div>
+    <div class="lit-audiences rev" style="transition-delay:.08s">
+      <div class="lit-tab active" onclick="filterLit('all',this)">All</div>
+      <div class="lit-tab" onclick="filterLit('engineers',this)">Engineers</div>
+      <div class="lit-tab" onclick="filterLit('stadiums',this)">Stadium Authorities</div>
+      <div class="lit-tab" onclick="filterLit('students',this)">Students</div>
+    </div>
+    <div class="lit-grid rev" style="transition-delay:.16s" id="litGrid">
+      <div class="lit-card" data-audience="engineers stadiums students">
+        <div class="lit-card-top"><div class="lit-icon">&#128680;</div><div class="lit-badge stadiums">Stadium Authorities</div></div>
+        <div class="lit-title">Emergency Lux Recovery Through Re-Aiming Strategy</div>
+        <div class="lit-desc">WPL 2025 case study: how a premier cricket venue faced match cancellation 48 hours before the first game &mdash; and how emergency re-aiming recovered compliant lux levels in 1.5 days.</div>
+        <div class="lit-meta">PDF &middot; Case Study &middot; Ravi Prabhakar</div>
+        <button class="lit-btn" data-pdf="CASE_STUDY_Emergency_Lux_Recovery_Through_Re-Aiming_Strategy.pdf" data-title="Emergency Lux Recovery Through Re-Aiming Strategy" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Read Now</button>
+      </div>
+      <div class="lit-card" data-audience="engineers stadiums students">
+        <div class="lit-card-top"><div class="lit-icon">&#128293;</div><div class="lit-badge engineers">Engineers</div></div>
+        <div class="lit-title">Electrical Fire in High-Mast Stadium Lighting</div>
+        <div class="lit-desc">Root cause analysis of an 18-year-old MH/HID system fire during WPL 2025 preparations. Covers chronic overload, cable degradation, emergency external rewiring solution, and lessons for engineering students.</div>
+        <div class="lit-meta">PDF &middot; Technical Case Study &middot; Ravi Prabhakar</div>
+        <button class="lit-btn" data-pdf="RRLS_Case_Study.pdf" data-title="Electrical Fire in High-Mast Stadium Lighting — Root Cause Analysis" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Read Now</button>
+      </div>
+      <div class="lit-card" data-audience="engineers students">
+        <div class="lit-card-top"><div class="lit-icon">&#128207;</div><div class="lit-badge engineers">Engineers</div></div>
+        <div class="lit-title">Calculating Luminaire Requirements: The Engineering Method</div>
+        <div class="lit-desc">A quantitative examination of the six determinant variables behind sports lighting design &mdash; from lux standards and inverse square law to utilisation factors and uniformity requirements. Includes full MH vs LED cost analysis.</div>
+        <div class="lit-meta">PDF &middot; Technical Article &middot; March 2026</div>
+        <button class="lit-btn" data-pdf="Lights_Calculation_Article_docx.pdf" data-title="Calculating Luminaire Requirements: The Engineering Method" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Read Now</button>
+      </div>
+      <div class="lit-card" data-audience="stadiums engineers students">
+        <div class="lit-card-top"><div class="lit-icon">&#128200;</div><div class="lit-badge stadiums">Stadium Authorities</div></div>
+        <div class="lit-title">The Hidden Cost of Operational Shortcuts</div>
+        <div class="lit-desc">How avoiding &#8377;50,000&ndash;100,000 in annual engineering fees generated costs 150&ndash;200&times; higher over three years. A WPL 2025 case study on false economies in stadium lighting management.</div>
+        <div class="lit-meta">PDF &middot; Case Study &middot; LinkedIn Article</div>
+        <button class="lit-btn" data-pdf="LinkedIn_Case_Study_-_Lux.pdf" data-title="The Hidden Cost of Operational Shortcuts in Stadium Lighting" onclick="openPDF(this)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="8" height="11" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 4h4M3 6.5h4M3 9h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Read Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pdf-modal" id="pdfModal">
+  <div class="pdf-modal-bar">
+    <div class="pdf-modal-title" id="pdfModalTitle">Literature</div>
+    <div class="pdf-modal-actions">
+      <a class="pdf-modal-dl" id="pdfModalDl" href="#" download target="_blank">&#8595; Download</a>
+      <button class="pdf-modal-close" id="pdfModalClose">&#10005; Close</button>
+    </div>
+  </div>
+  <iframe id="pdfModalFrame" src="about:blank" title="Literature PDF"></iframe>
+</div>
+
 <section id="contact" class="sec sec-dark">
   <div style="max-width:1280px;margin:0 auto 52px" class="rev">
     <div class="s-eyebrow">Get In Touch</div>
@@ -438,7 +451,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
       <p class="f-desc">Over 25 years of uncompromising expertise in professional floodlighting, LED conversion, and turnkey electrical infrastructure for stadia, industrial facilities, ports, and airports &mdash; across India and internationally.</p>
     </div>
     <div class="f-col"><div class="f-col-title">Services</div><ul><li><a href="#services">New Installations</a></li><li><a href="#services">MH/LED Retrofits</a></li><li><a href="#services">Aiming Services</a></li><li><a href="#services">AMC &amp; Servicing</a></li><li><a href="#services">Musco Buy-Back</a></li><li><a href="#services">Consultancy</a></li></ul></div>
-    <div class="f-col"><div class="f-col-title">Company</div><ul><li><a href="#about">About RRLS</a></li><li><a href="#case-studies">Case Studies</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#clients">Our Clients</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+    <div class="f-col"><div class="f-col-title">Company</div><ul><li><a href="#about">About RRLS</a></li><li><a href="#literature">Literature</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#clients">Our Clients</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
     <div class="f-col"><div class="f-col-title">Sectors</div><ul><li><a href="#services">Sports Facilities &amp; Stadiums</a></li><li><a href="#services">Industrial Spaces</a></li><li><a href="#services">Ports &amp; Harbours</a></li><li><a href="#services">Airports</a></li><li><a href="#services">Schools &amp; Universities</a></li></ul></div>
   </div>
   <div class="f-bottom"><span>&copy; 2025 RR Lighting Solutions. All rights reserved.</span><span>Designed with precision &middot; Built for performance</span></div>
@@ -461,12 +474,24 @@ const cForm=document.getElementById('cForm'),cOk=document.getElementById('cOk');
 cForm.addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=cForm.querySelector('.c-btn');btn.textContent='Sending...';btn.disabled=true;
+  const data=Object.fromEntries(new FormData(cForm));
   try{
-    const r=await fetch('https://formspree.io/f/mpqyqppy',{method:'POST',body:new FormData(cForm),headers:{Accept:'application/json'}});
+    const r=await fetch('https://formspree.io/f/mpqyqppy',{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json','Accept':'application/json'}});
+    const json=await r.json();
     if(r.ok){cForm.reset();cOk.style.display='block';btn.textContent='Submit Enquiry';btn.disabled=false}
-    else{btn.textContent='Error - Try Again';btn.disabled=false}
+    else{alert(json.error||'Submission failed. Please email us directly.');btn.textContent='Try Again';btn.disabled=false}
   }catch{btn.textContent='Error - Try Again';btn.disabled=false}
 });
+
+/* LITERATURE FILTER */
+function filterLit(audience, tab){
+  document.querySelectorAll('.lit-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  document.querySelectorAll('.lit-card').forEach(card=>{
+    const a=card.getAttribute('data-audience')||'';
+    card.style.display=(audience==='all'||a.includes(audience))?'':'none';
+  });
+}
 const lbImgs=['stadium-night-aerial.jpg','stadium-night-overview.jpg','aca-guwahati-floodlight.jpg','mast-installation-crane.jpg','electrical-installation.jpg','wpl-final-match.jpg','wpl-stadium-stands.jpg','mh-lamp-closeup.jpg','site-survey.jpg'];
 const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
 let lbIdx=0;
