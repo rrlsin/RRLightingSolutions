@@ -64,7 +64,7 @@ nav{position:fixed;left:0;right:0;z-index:500;height:68px;display:flex;align-ite
 .hero-inner{position:relative;z-index:10;padding:0 52px;overflow:hidden}
 .hero-kicker{font-family:var(--font-d);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--beam);margin-bottom:22px;display:flex;align-items:center;gap:14px}
 .hero-kicker::before{content:'';width:36px;height:1px;background:var(--beam);flex-shrink:0}
-.hero-h1{font-family:var(--font-d);font-size:clamp(52px,8vw,120px);line-height:.93;letter-spacing:.05em;text-transform:uppercase;color:var(--text);overflow:hidden}
+.hero-h1{font-family:var(--font-d);font-size:clamp(52px,8vw,120px);line-height:.93;letter-spacing:.05em;text-transform:uppercase;color:var(--text);overflow:hidden;word-break:break-word}
 .hero-h1 span{display:block}
 .hero-h1 .line-ghost{-webkit-text-stroke:1px rgba(201,168,76,.35);color:transparent}
 .hero-h1 .line-lit{color:var(--beam)}
@@ -183,7 +183,7 @@ nav{position:fixed;left:0;right:0;z-index:500;height:68px;display:flex;align-ite
 .ticker-outer::before,.ticker-outer::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
 .ticker-outer::before{left:0;background:linear-gradient(to right,var(--void),transparent)}
 .ticker-outer::after{right:0;background:linear-gradient(to left,var(--void),transparent)}
-.ticker{display:flex;width:max-content;animation:tick 22s linear infinite}
+.ticker{display:flex;width:max-content;animation:tick 35s linear infinite}
 .ticker:hover{animation-play-state:paused}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .t-item{font-family:var(--font-d);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:16px 36px;border-right:1px solid var(--border);white-space:nowrap;transition:color .2s;display:flex;align-items:center;gap:12px}
@@ -231,8 +231,12 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
 @media(max-width:860px){
   nav{padding:0 20px}.nl{display:none}.sec{padding:80px 20px}
   .hero-inner,.stats{padding-left:20px;padding-right:20px}
+  .hero-lower{flex-direction:column;align-items:flex-start;gap:28px}
+  .hero-actions{width:100%}
+  .hero{padding-top:88px}
+  .hero-h1{font-size:clamp(52px,13.5vw,120px);letter-spacing:.02em}
   .stats{margin-left:20px;margin-right:20px;flex-wrap:wrap}
-  .stat{border-right:none;border-bottom:1px solid var(--border);padding:18px 20px}
+  .stat{border-right:none;border-bottom:1px solid var(--border);padding:18px 20px;flex:1 1 45%}
   .about-grid,.contact-layout,.f-grid{grid-template-columns:1fr;gap:40px}
   .about-cards{padding-top:0}.svc-grid{grid-template-columns:1fr}
   .lit-grid{grid-template-columns:1fr 1fr}.lit-head{grid-template-columns:1fr;gap:16px}
@@ -244,6 +248,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
   .sector-row{grid-template-columns:1fr 1fr}.c-row{grid-template-columns:1fr}
   .client-logos{grid-template-columns:1fr 1fr}
   .tbar{padding:5px 20px}footer{padding:56px 20px 28px}
+  .gallery-intro{flex-direction:column;align-items:flex-start}
+  .gallery-note{text-align:left;border-left:none;border-top:1px solid rgba(201,168,76,.2);padding-left:0;padding-top:12px;max-width:100%}
 }
 </style>
 </head>
@@ -337,7 +343,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
       </div>
     </div>
     <div class="sector-row rev">
-      <div class="sector"><div class="sector-icon">&#127959;</div><div><div class="sector-name">Cricket Associations</div><div class="sector-sub">BCCI &amp; district level</div></div></div>
+      <div class="sector"><div class="sector-icon">&#127967;</div><div><div class="sector-name">Cricket Associations</div><div class="sector-sub">BCCI &amp; district level</div></div></div>
       <div class="sector"><div class="sector-icon">&#127891;</div><div><div class="sector-name">Schools &amp; Universities</div><div class="sector-sub">Multi-sport campuses</div></div></div>
       <div class="sector"><div class="sector-icon">&#127981;</div><div><div class="sector-name">Industrial</div><div class="sector-sub">Parks, warehouses, ports</div></div></div>
       <div class="sector"><div class="sector-icon">&#9992;</div><div><div class="sector-name">Airports &amp; Ports</div><div class="sector-sub">Safety-critical infrastructure</div></div></div>
