@@ -13,8 +13,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
 gtag('config','G-BBJ7F8L13Q',{send_page_view:true});
 </script>
-<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'hi,ar,zh-CN,fr,de,ja,ko,pt,ru,es,ta,te,bn,ur,ms,id',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'gte');}</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -180,17 +179,17 @@ nav{position:fixed;left:0;right:0;z-index:500;height:68px;display:flex;align-ite
 .lb-prev{left:16px}.lb-next{right:16px}
 .lb-prev:hover,.lb-next:hover{color:var(--beam)}
 .clients-wrap{max-width:1280px;margin:0 auto}
-.client-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:1px}
-.client-card{background:var(--carbon);padding:48px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;transition:background .25s;position:relative;overflow:hidden}
-.client-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--beam),transparent);transform:scaleX(0);transform-origin:center;transition:transform .4s}
-.client-card:hover{background:var(--steel)}
-.client-card:hover::after{transform:scaleX(1)}
-.client-logo-wrap{width:120px;height:120px;display:flex;align-items:center;justify-content:center;filter:grayscale(30%);opacity:0.85;transition:filter .3s,opacity .3s}
-.client-card:hover .client-logo-wrap{filter:grayscale(0%);opacity:1}
-.client-logo-wrap img{width:100%;height:100%;object-fit:contain;object-position:center}
-.client-name{font-family:var(--font-d);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center;line-height:1.5}
-.t-item{font-family:var(--font-d);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:16px 36px;border-right:1px solid var(--border);white-space:nowrap;transition:color .2s}
+.ticker-outer{overflow:hidden;position:relative;margin-bottom:48px}
+.ticker-outer::before,.ticker-outer::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+.ticker-outer::before{left:0;background:linear-gradient(to right,var(--void),transparent)}
+.ticker-outer::after{right:0;background:linear-gradient(to left,var(--void),transparent)}
+.ticker{display:flex;width:max-content;animation:tick 22s linear infinite}
+.ticker:hover{animation-play-state:paused}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.t-item{font-family:var(--font-d);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:16px 36px;border-right:1px solid var(--border);white-space:nowrap;transition:color .2s;display:flex;align-items:center;gap:12px}
 .t-item:hover{color:var(--beam)}
+.t-logo{width:32px;height:32px;object-fit:contain;opacity:0.7;transition:opacity .2s;flex-shrink:0}
+.t-item:hover .t-logo{opacity:1}
 .sector-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 .sector{background:var(--carbon);padding:28px;display:flex;align-items:center;gap:14px;transition:background .2s}
 .sector:hover{background:var(--steel)}
@@ -317,25 +316,27 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
 <section id="clients" class="sec">
   <div class="clients-wrap">
     <div class="rev"><div class="s-eyebrow">Our Clients</div><h2 class="s-title">Trusted by <span class="accent">India's Finest</span></h2></div>
-    <div class="client-logos rev" style="transition-delay:.1s">
-      <div class="client-card">
-        <div class="client-logo-wrap"><img src="aca.png" alt="Assam Cricket Association"></div>
-        <div class="client-name">Assam Cricket Association</div>
-      </div>
-      <div class="client-card">
-        <div class="client-logo-wrap"><img src="cci.png" alt="Cricket Club of India"></div>
-        <div class="client-name">Cricket Club of India</div>
-      </div>
-      <div class="client-card">
-        <div class="client-logo-wrap"><img src="sgu.png" alt="Sanjay Ghodawat University"></div>
-        <div class="client-name">Sanjay Ghodawat University</div>
-      </div>
-      <div class="client-card">
-        <div class="client-logo-wrap"><img src="sdca.png" alt="Surat District Cricket Association"></div>
-        <div class="client-name">Surat District Cricket Association</div>
+    <div class="ticker-outer rev">
+      <div class="ticker">
+        <div class="t-item"><img class="t-logo" src="aca.png" alt="">Assam Cricket Association</div>
+        <div class="t-item"><img class="t-logo" src="cci.png" alt="">Cricket Club of India</div>
+        <div class="t-item"><img class="t-logo" src="sgu.png" alt="">Sanjay Ghodawat University</div>
+        <div class="t-item"><img class="t-logo" src="sdca.png" alt="">Surat District Cricket Association</div>
+        <div class="t-item"><img class="t-logo" src="aca.png" alt="">Assam Cricket Association</div>
+        <div class="t-item"><img class="t-logo" src="cci.png" alt="">Cricket Club of India</div>
+        <div class="t-item"><img class="t-logo" src="sgu.png" alt="">Sanjay Ghodawat University</div>
+        <div class="t-item"><img class="t-logo" src="sdca.png" alt="">Surat District Cricket Association</div>
+        <div class="t-item"><img class="t-logo" src="aca.png" alt="">Assam Cricket Association</div>
+        <div class="t-item"><img class="t-logo" src="cci.png" alt="">Cricket Club of India</div>
+        <div class="t-item"><img class="t-logo" src="sgu.png" alt="">Sanjay Ghodawat University</div>
+        <div class="t-item"><img class="t-logo" src="sdca.png" alt="">Surat District Cricket Association</div>
+        <div class="t-item"><img class="t-logo" src="aca.png" alt="">Assam Cricket Association</div>
+        <div class="t-item"><img class="t-logo" src="cci.png" alt="">Cricket Club of India</div>
+        <div class="t-item"><img class="t-logo" src="sgu.png" alt="">Sanjay Ghodawat University</div>
+        <div class="t-item"><img class="t-logo" src="sdca.png" alt="">Surat District Cricket Association</div>
       </div>
     </div>
-    <div class="sector-row rev" style="transition-delay:.2s">
+    <div class="sector-row rev">
       <div class="sector"><div class="sector-icon">&#127959;</div><div><div class="sector-name">Cricket Associations</div><div class="sector-sub">BCCI &amp; district level</div></div></div>
       <div class="sector"><div class="sector-icon">&#127891;</div><div><div class="sector-name">Schools &amp; Universities</div><div class="sector-sub">Multi-sport campuses</div></div></div>
       <div class="sector"><div class="sector-icon">&#127981;</div><div><div class="sector-name">Industrial</div><div class="sector-sub">Parks, warehouses, ports</div></div></div>
