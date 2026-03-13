@@ -147,7 +147,21 @@ nav{position:fixed;left:0;right:0;z-index:500;height:68px;display:flex;align-ite
 .pdf-modal-close,.pdf-modal-dl{font-family:var(--font-d);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(201,168,76,.25);color:var(--beam);background:none;cursor:pointer;padding:7px 16px;transition:border-color .2s,background .2s;text-decoration:none;display:inline-block}
 .pdf-modal-close:hover,.pdf-modal-dl:hover{border-color:var(--beam);background:rgba(201,168,76,.08)}
 .pdf-modal iframe{width:100%;max-width:1000px;height:calc(100vh - 120px);border:1px solid rgba(201,168,76,.12);background:#fff}
-.gallery-wrap{max-width:1280px;margin:0 auto}
+.g-tile-video{cursor:default!important}
+.g-video-thumb{position:absolute;inset:0;cursor:pointer}
+.g-video-thumb img{width:100%;height:100%;object-fit:cover;object-position:center}
+.g-video-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 60%,transparent 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:background .3s}
+.g-video-thumb:hover .g-video-overlay{background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 60%,transparent 100%)}
+.g-video-play{width:64px;height:64px;border-radius:50%;border:2px solid var(--beam);background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;color:var(--beam);transition:all .25s;backdrop-filter:blur(4px);margin-bottom:16px}
+.g-video-thumb:hover .g-video-play{background:var(--beam);color:#000;transform:scale(1.08)}
+.g-video-meta{position:absolute;bottom:18px;left:20px;display:flex;flex-direction:column;gap:4px}
+.g-video-badge{font-family:var(--font-d);font-size:11px;letter-spacing:.16em;color:var(--beam);text-transform:uppercase}
+.g-video-title{font-family:var(--font-d);font-size:16px;letter-spacing:.08em;color:var(--text);text-transform:uppercase}
+.g-video-player{position:absolute;inset:0;background:#000}
+.g-video-about-label{position:absolute;top:0;left:0;right:0;z-index:10;padding:12px 18px;font-family:var(--font-d);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--beam);background:linear-gradient(to bottom,rgba(0,0,0,.9) 0%,transparent 100%);pointer-events:none}
+.g-video-player iframe{width:100%;height:100%;border:none;display:block}
+.g-video-close{position:absolute;top:12px;right:12px;font-family:var(--font-d);font-size:12px;letter-spacing:.12em;background:rgba(0,0,0,.7);border:1px solid rgba(201,168,76,.3);color:var(--beam);padding:6px 12px;cursor:pointer;transition:all .2s;z-index:10}
+.g-video-close:hover{background:rgba(201,168,76,.15);border-color:var(--beam)}
 .gallery-intro{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:24px;flex-wrap:wrap}
 .g-tile-more{display:none}
 .g-more-row{display:flex;justify-content:center;margin-top:32px}
@@ -278,6 +292,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
       <div class="hero-actions"><a href="#services" class="btn btn-solid">Our Services</a><a href="#literature" class="btn btn-outline">Literature</a></div>
     </div>
   </div>
+  </div>
   <div class="stats">
     <div class="stat"><div class="stat-n">25+</div><div class="stat-l">Years of Excellence</div></div>
     <div class="stat"><div class="stat-n">100+</div><div class="stat-l">Projects Executed</div></div>
@@ -293,6 +308,27 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:64px 52
       <p class="gallery-note">A visual record of our projects &mdash; each image a testament to the precision, scale, and luminous quality that defines the RRLS approach across every engagement.</p>
     </div>
     <div class="g-grid rev" style="transition-delay:.1s">
+      <div class="g-tile g-tile-video" id="gVideoTile">
+        <div class="g-video-thumb" onclick="openGalleryVideo()">
+          <img src="https://img.youtube.com/vi/HiFPvkUILds/maxresdefault.jpg" alt="RR Lighting Solutions Introduction Video">
+          <div class="g-video-overlay">
+            <div class="g-video-play">
+              <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+            </div>
+            <div class="g-video-meta">
+              <span class="g-video-badge">&#9654; Video</span>
+              <span class="g-video-title">Founder Introduction</span>
+            </div>
+          </div>
+        </div>
+        <div class="g-video-player" id="gVideoPlayer" style="display:none">
+          <div class="g-video-about-label">About Us</div>
+          <iframe id="gVideoFrame" src="about:blank"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          <button class="g-video-close" onclick="closeGalleryVideo()">&#10005;</button>
+        </div>
+      </div>
       <div class="g-tile has-img" onclick="openLb(0)"><div class="g-tile-inner"><div class="g-tile-line"></div><div class="g-tile-num">Stadium Night View</div></div><div class="g-hover"><span class="g-zoom-icon">+</span></div><img src="stadium-night-aerial.jpg" alt="Stadium floodlighting aerial night view"></div>
       <div class="g-tile has-img" onclick="openLb(1)"><div class="g-tile-inner"><div class="g-tile-line"></div><div class="g-tile-num">WPL &mdash; Night Overview</div></div><div class="g-hover"><span class="g-zoom-icon">+</span></div><img src="stadium-night-overview.jpg" alt="Cricket stadium lit at night"></div>
       <div class="g-tile has-img" onclick="openLb(2)"><div class="g-tile-inner"><div class="g-tile-line"></div><div class="g-tile-num">ACA Guwahati &mdash; Floodlight Mast</div></div><div class="g-hover"><span class="g-zoom-icon">+</span></div><img src="aca-guwahati-floodlight.jpg" alt="ACA Stadium Guwahati floodlight mast"></div>
@@ -545,6 +581,17 @@ function openPDF(btn){
   pdfModal.classList.add('open');document.body.style.overflow='hidden';
 }
 function closePDF(){pdfModal.classList.remove('open');pdfModalFrame.src='about:blank';document.body.style.overflow=''}
+function openGalleryVideo(){
+  document.getElementById('gVideoTile').querySelector('.g-video-thumb').style.display='none';
+  const player=document.getElementById('gVideoPlayer');
+  player.style.display='block';
+  document.getElementById('gVideoFrame').src='https://www.youtube.com/embed/HiFPvkUILds?autoplay=1&rel=0&modestbranding=1';
+}
+function closeGalleryVideo(){
+  document.getElementById('gVideoFrame').src='about:blank';
+  document.getElementById('gVideoPlayer').style.display='none';
+  document.getElementById('gVideoTile').querySelector('.g-video-thumb').style.display='block';
+}
 </script>
 </body>
 </html>
